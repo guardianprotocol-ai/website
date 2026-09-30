@@ -1,0 +1,4 @@
+# The name is not cleared by the trademark attorney yet, so nothing here should be indexed.
+# Delete this file, and the X-Robots-Tag header in firebase.json, on the day it goes public.
+User-agent: *
+Disallow: /
