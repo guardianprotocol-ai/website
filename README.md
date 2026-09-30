@@ -7,7 +7,7 @@ The public website for Guardian Protocol. It belongs to the project, not to any 
 - **Neutral.** No sales copy. Companies appear only in the "Built on Guardian Protocol" directory: alphabetical, one published listing policy, everyone listed the same way.
 - **No trackers.** No ad pixels or sign-up walls. Privacy-respecting analytics or none.
 - **Honest.** Numbers on the page (patterns, ATLAS coverage, members) must match the registry. Placeholders stay in brackets until they're real.
-- **Don't publish until the name is cleared** by the trademark attorney.
+- **The trademark check is still open** on the name. The site is live but served `noindex` until it is cleared and the placeholders are filled.
 - **Brand.** Guardian blue `#2459FF` for the mark, links and buttons. Signal amber `#FFB020` only for the one lit node inside the mark, never as a general accent. Ink `#0B1020` and white. Manrope for headings, JetBrains Mono for code and labels.
 
 ## Files
@@ -23,17 +23,23 @@ The brand folder is the source of truth. When the mark changes, copy the files a
 
 Placeholders still to fill: the install commands (the `guardian-protocol` package isn't published yet), founding member logos and count, vendor listings, and the links.
 
-## Deploy (GitHub Pages)
+## Deploy (Firebase Hosting)
 
-1. Create a public repo `guardianprotocol-ai/website` and push this folder to it.
-2. In the repo: Settings, Pages, deploy from the `main` branch, root folder.
-3. In the org: Settings, Pages, **verify the domain** guardianprotocol.network. This stops anyone else's GitHub Pages site from claiming it.
-4. At the registrar (GoDaddy), set DNS:
-   - Four `A` records for `@`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - One `CNAME` record for `www` pointing to `guardianprotocol-ai.github.io`
-5. Back in the repo's Pages settings, tick **Enforce HTTPS** once the certificate is issued.
+Live at https://guardian-protocol-site.web.app, Firebase project `guardian-protocol-site`.
 
-Check the current GitHub Pages docs before step 4; these addresses are GitHub's published ones but can change.
+```bash
+firebase deploy --only hosting
+```
+
+`firebase.json` sets the whole folder as the public root and ignores `.git`, the README, the CNAME and the Firebase files themselves. The ignore list needs both `**/.*` and `**/.*/**`: the first alone matches dotfiles but not files inside a dot directory, so a first deploy served the entire `.git` folder publicly.
+
+While the page still carries placeholders, everything is served with `X-Robots-Tag: noindex, nofollow` and `robots.txt` disallows all crawlers. Delete `robots.txt` and that header on the day the page is ready to be found.
+
+### Custom domain
+
+The CLI cannot add one, so it is done in the console: Firebase console, Hosting, Add custom domain, `guardianprotocol.network`. Firebase then prints a TXT record for verification and the A records to point at, which are specific to the site and should be copied from the console rather than from here. Add them at the registrar, GoDaddy. The certificate is issued automatically once the records resolve.
+
+`CNAME` is left in the repository in case the site ever moves to GitHub Pages. Firebase ignores it.
 
 ## Update
 
