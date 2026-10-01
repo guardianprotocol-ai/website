@@ -37,28 +37,18 @@ While the page still carries placeholders, everything is served with `X-Robots-T
 
 ### Custom domain
 
-The CLI cannot add one, so it is done in the console: Firebase console, Hosting, Add custom domain, `guardianprotocol.network`. Firebase then prints a TXT record for verification and the A records to point at, which are specific to the site and should be copied from the console rather than from here. Add them at the registrar, GoDaddy. The certificate is issued automatically once the records resolve.
+The domains are already registered with Firebase Hosting, so all that is left is DNS at the
+registrar. Delete any existing `A` record on the apex and any existing `www` record first:
+a registrar's default parking record will quietly win over these.
 
-`CNAME` is left in the repository in case the site ever moves to GitHub Pages. Firebase ignores it.
+| Type | Host | Value | TTL |
+| --- | --- | --- | --- |
+| A | `@` | `199.36.158.100` | 600 |
+| TXT | `@` | `hosting-site=guardian-protocol-site` | 600 |
+| CNAME | `www` | `guardian-protocol-site.web.app` | 600 |
 
-## Update
+The TXT record is how Firebase proves you own the domain before it issues a certificate. It
+stays there permanently; removing it later can invalidate the certificate.
 
-Edit `index.html`, preview it by opening the file in a browser, then commit on a branch and open a pull request. A merge to `main` deploys.
-
-## The "Protected by Guardian Protocol" badge (not built yet)
-
-The mark already tells the story the badge needs to tell: six connected nodes forming a shield, one of them lit. A project that carries the badge is saying it is one of the nodes.
-
-**Who may use it.** Any project that passes the scan, on the same published listing policy as the vendor directory: one rule, applied the same way to everyone, no exceptions bought or granted. Passing means the scan ran every verified pattern against the project's agent and reported the result. It does not mean the project is secure, and the badge must never be worded as though it does.
-
-**What it would look like.** A small SVG, the mark at 16px next to "Protected by Guardian Protocol" in JetBrains Mono, on white or on ink. Two forms: one for a README, one for a footer. Both link back to the project's own scan result, not to a marketing page, so a reader can check the claim in one click.
-
-**How it would work.**
-
-1. The scan writes a result with the registry version it ran, the date, and the attack success rate per pattern.
-2. The project publishes that result at a stable URL.
-3. The badge reads it. A result older than the badge's freshness window, or one from a registry version that has since been superseded, shows as stale rather than as a pass. A badge that cannot go stale is a logo, not evidence.
-
-**What has to be decided first.** Who hosts the results, how a project proves the result is its own, how often a badge must be refreshed, and what happens when a project fails after having passed. None of that is settled, which is why the badge is a note here and not yet on the page.
-
-**Rules if it ships.** Never on the site's own header as decoration. Never implying certification or endorsement by the project. Never used by a company to suggest the protocol favours it: the neutrality rule at the top of this file applies to the badge exactly as it applies to the directory.
+The certificate is issued automatically once the records resolve, usually within a few hours
+and up to 24. Until then the domain shows as pending and the `.web.app` address keeps working.
