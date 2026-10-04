@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Guardian Protocol: open security for AI agents</title>
-<meta name="description" content="Guardian Protocol is an open, vendor-neutral defense network for AI agents: a shared registry of known attacks mapped to MITRE ATLAS, a sensor that blocks them, and a network that spreads new defenses in hours.">
+<meta name="description" content="Guardian Protocol is an open, vendor-neutral defense network for AI agents: a shared registry of known attacks mapped to MITRE ATLAS, a reference sensor that blocks them in testing, and a network, still in design, for spreading new defenses quickly.">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon-180.png">
@@ -40,7 +40,7 @@ a{color:#2459FF}a:hover{color:#1B44CC}
 <a href="#how" style="color: #0B1020; text-decoration: none">How it works</a>
 <a href="#governance" style="color: #0B1020; text-decoration: none">Governance</a>
 <a href="#contribute" style="color: #0B1020; text-decoration: none">Contribute</a>
-<a href="#github" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 8px; background: #0B1020; color: #FFFFFF; text-decoration: none; font-weight: 500">GitHub</a>
+<a href="https://github.com/guardianprotocol-ai/registry" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 8px; background: #0B1020; color: #FFFFFF; text-decoration: none; font-weight: 500">GitHub</a>
 </nav>
 </header>
 
@@ -48,27 +48,29 @@ a{color:#2459FF}a:hover{color:#1B44CC}
 <div style="display: flex; flex-direction: column; gap: 28px">
 <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: #2459FF">Open security for AI agents</p>
 <h1 style="margin: 0; font-family: 'Manrope', system-ui, sans-serif; font-size: 76px; font-weight: 800; line-height: 1.02; letter-spacing: -2.5px">An attack caught anywhere protects everyone.</h1>
-<p style="margin: 0; font-size: 20px; line-height: 1.55; color: #39415C; max-width: 560px">Guardian Protocol is an open, vendor-neutral defense network for AI agents: a shared registry of known attacks, a sensor that blocks them, and a network that spreads new defenses in hours.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.55; color: #39415C; max-width: 560px">Guardian Protocol is an open, vendor-neutral defense network for AI agents: a shared registry of known attacks mapped to MITRE ATLAS, a reference sensor that blocks them in testing, and a network, still in design, for spreading new defenses quickly.</p>
 <div style="display: flex; gap: 16px; align-items: center">
-<a href="#github" style="display: inline-flex; align-items: center; padding: 16px 26px; border-radius: 8px; background: #2459FF; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 17px">View on GitHub</a>
+<a href="https://github.com/guardianprotocol-ai/registry" style="display: inline-flex; align-items: center; padding: 16px 26px; border-radius: 8px; background: #2459FF; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 17px">View on GitHub</a>
 <a href="#how" style="display: inline-flex; align-items: center; padding: 16px 26px; border-radius: 8px; border: 1.5px solid #0B1020; color: #0B1020; text-decoration: none; font-weight: 500; font-size: 17px">Read the architecture</a>
 </div>
 <p style="margin: 0; font-size: 15px; color: #5C6484">Apache 2.0. No company owns it. Headed for a neutral foundation.</p>
 </div>
 <div style="display: flex; flex-direction: column; gap: 14px; background: #0B1020; border-radius: 16px; padding: 36px 40px; color: #E8ECF7">
-<p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #99A2BC">Scan your agent, free</p>
-<div style="display: flex; flex-direction: column; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 20px; line-height: 1.5">
-<div><span style="color: #6E8DFF">$</span> pip install guardian-protocol</div>
-<div><span style="color: #6E8DFF">$</span> guardian scan</div>
+<p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #99A2BC">Measured, not asserted</p>
+<div style="display: flex; flex-direction: column; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 15px; line-height: 1.5">
+<div><span style="color: #6E8DFF">$</span> cd scanner</div>
+<div><span style="color: #6E8DFF">$</span> python3 -m guardian_scanner run --target claude-code --repeat 5</div>
+<div><span style="color: #6E8DFF">$</span> python3 -m guardian_scanner run --target claude-code --repeat 5 --sensor</div>
 </div>
 <div style="height: 1px; background: #1E2540"></div>
-<div style="display: flex; flex-direction: column; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 15px; line-height: 1.6; color: #C6CDE0">
-<div>Running 12 registry patterns, 10 trials each</div>
-<div><span style="color: #AEB6CC">GP-0003</span>  Tampered MCP tool       <span style="color: #FF6B6B">got through</span></div>
-<div><span style="color: #AEB6CC">GP-0001</span>  Hidden instructions     <span style="color: #6E8DFF">resisted</span></div>
-<div style="color: #99A2BC">Report written to guardian-report.html</div>
+<div style="display: flex; flex-direction: column; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.6; color: #C6CDE0">
+<div style="color: #99A2BC">Pattern   Attack success rate   95% interval</div>
+<div><span style="color: #AEB6CC">GP-0001</span>   <span style="color: #6E8DFF">0%</span>                    [0.00, 0.43]</div>
+<div><span style="color: #AEB6CC">GP-0002</span>   <span style="color: #6E8DFF">0%</span>                    [0.00, 0.43]</div>
+<div><span style="color: #AEB6CC">GP-0003</span>   <span style="color: #FF6B6B">100%</span>                  [0.57, 1.00]</div>
+<div><span style="color: #AEB6CC">GP-0003</span>   <span style="color: #6E8DFF">0%</span> with the sensor      [0.00, 0.43]</div>
 </div>
-<p style="margin: 0; font-size: 14px; color: #99A2BC">Then add the sensor in front of your MCP servers to block what the scan finds.</p>
+<p style="margin: 0; font-size: 14px; color: #99A2BC">Five runs each against Claude Code 2.1.274, September 29 2026. Figures from <a href="https://github.com/guardianprotocol-ai/registry/blob/main/scanner/README.md" style="color: #6E8DFF">scanner/README.md</a>. A current model resisted the poisoned page. It used a tool whose definition had changed after the operator approved it, every time, because nothing tells it the tool changed. The sensor closed that gap. Five runs is a small sample, which is why the interval is shown.</p>
 </div>
 </section>
 
@@ -79,15 +81,15 @@ a{color:#2459FF}a:hover{color:#1B44CC}
 </div>
 <div style="display: flex; flex-direction: column; gap: 6px; padding: 36px 32px; border-right: 1px solid #DCE3F0">
 <div style="font-family: 'Manrope', system-ui, sans-serif; font-size: 52px; font-weight: 800; letter-spacing: -1.6px">208</div>
-<div style="font-size: 16px; color: #4A5372">MITRE ATLAS techniques mapped</div>
+<div style="font-size: 16px; color: #4A5372">MITRE ATLAS techniques triaged</div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 6px; padding: 36px 32px; border-right: 1px solid #DCE3F0">
 <div style="font-family: 'Manrope', system-ui, sans-serif; font-size: 52px; font-weight: 800; letter-spacing: -1.6px">63</div>
-<div style="font-size: 16px; color: #4A5372">happen while agents run, where the sensor acts</div>
+<div style="font-size: 16px; color: #4A5372">happen while agents run, where a sensor can act</div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 6px; padding: 36px 0 36px 32px">
 <div style="font-family: 'Manrope', system-ui, sans-serif; font-size: 52px; font-weight: 800; letter-spacing: -1.6px">1</div>
-<div style="font-size: 16px; color: #4A5372">founding member</div>
+<div style="font-size: 16px; color: #4A5372">founding member, the maintainer's own company</div>
 </div>
 </section>
 
@@ -124,7 +126,7 @@ a{color:#2459FF}a:hover{color:#1B44CC}
 <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: #2459FF">The registry</p>
 <h2 style="margin: 0; font-family: 'Manrope', system-ui, sans-serif; font-size: 52px; font-weight: 800; line-height: 1.1; letter-spacing: -1.6px">Known attacks, in the open.</h2>
 </div>
-<a href="#registry" style="font-size: 17px; font-weight: 500">Browse all patterns</a>
+<a href="https://github.com/guardianprotocol-ai/registry/tree/main/patterns" style="font-size: 17px; font-weight: 500">Browse all patterns on GitHub</a>
 </div>
 <div style="display: flex; flex-direction: column; border: 1px solid #DCE3F0; border-radius: 14px; background: #F7F9FD">
 <div style="display: grid; grid-template-columns: 140px minmax(0, 1fr) 360px 120px; gap: 24px; padding: 18px 32px; border-bottom: 1px solid #DCE3F0; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #5C6484">
@@ -170,7 +172,7 @@ a{color:#2459FF}a:hover{color:#1B44CC}
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 860px">
 <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: #2459FF">Built on Guardian Protocol</p>
 <h2 style="margin: 0; font-family: 'Manrope', system-ui, sans-serif; font-size: 52px; font-weight: 800; line-height: 1.1; letter-spacing: -1.6px">Products and services that implement the protocol.</h2>
-<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #39415C">Anyone can build on the protocol, and every company is listed the same way: alphabetically, under one published <a href="#governance">listing policy</a>. No listing gets special access to the network or its data.</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #39415C">Anyone can build on the protocol, and every company is listed the same way: alphabetically, under one <a href="https://github.com/guardianprotocol-ai/registry/blob/main/GOVERNANCE.md">listing policy</a>. No listing gets special access to the network or its data.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px">
 <div style="display: flex; flex-direction: column; gap: 16px; padding: 32px; border: 1px solid #DCE3F0; border-radius: 14px; background: #F7F9FD">
@@ -236,7 +238,7 @@ a{color:#2459FF}a:hover{color:#1B44CC}
 </a>
 </div>
 
-<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #AEB6CC">These guides live in the repository and are the single source of truth. This page links to them rather than repeating them, so the two can never drift apart.</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #AEB6CC">These guides live in the repository and are the single source of truth. This page links to them rather than repeating them, so the guides stay the one place the rules are written down.</p>
 </section>
 
 <footer id="governance" style="flex-grow: 1; display: flex; justify-content: space-between; align-items: flex-start; gap: 48px; padding: 56px 120px; border-top: 1px solid #DCE3F0">
@@ -245,11 +247,11 @@ a{color:#2459FF}a:hover{color:#1B44CC}
 <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4A5372">An open project, licensed under Apache 2.0. No company owns it, and the name, domains and repositories will transfer to a neutral foundation.</p>
 </div>
 <nav style="display: flex; gap: 32px; font-size: 15px">
-<a href="#governance" style="color: #0B1020">Governance</a>
-<a href="#governance" style="color: #0B1020">Security</a>
-<a href="#governance" style="color: #0B1020">Code of Conduct</a>
-<a href="#governance" style="color: #0B1020">Listing policy</a>
-<a href="#github" style="color: #0B1020">GitHub</a>
+<a href="https://github.com/guardianprotocol-ai/registry/blob/main/GOVERNANCE.md" style="color: #0B1020">Governance</a>
+<a href="https://github.com/guardianprotocol-ai/registry/blob/main/SECURITY.md" style="color: #0B1020">Security</a>
+<a href="https://github.com/guardianprotocol-ai/registry/blob/main/CODE_OF_CONDUCT.md" style="color: #0B1020">Code of Conduct</a>
+<a href="https://github.com/guardianprotocol-ai/registry/blob/main/GOVERNANCE.md" style="color: #0B1020">Listing policy</a>
+<a href="https://github.com/guardianprotocol-ai/registry" style="color: #0B1020">GitHub</a>
 </nav>
 </footer>
 
