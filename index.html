@@ -186,21 +186,57 @@ a{color:#2459FF}a:hover{color:#1B44CC}
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 820px">
 <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: #6E8DFF">Contribute</p>
 <h2 style="margin: 0; font-family: 'Manrope', system-ui, sans-serif; font-size: 52px; font-weight: 800; line-height: 1.1; letter-spacing: -1.6px">Every pattern you add protects everyone who runs the protocol.</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #AEB6CC">Everyone here is a contributor. Fork the repository, pick an issue, open a pull request. The machine checks everything first: format, tests, that the rules still catch attacks and still leave ordinary work alone, and that every pattern maps to MITRE ATLAS. Then a reviewer approves and a maintainer merges. Your name, and your organization if you opt in, are credited automatically, in the order people contributed.</p>
 </div>
+
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 820px">
+<p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: #6E8DFF">How it goes</p>
+<ol style="margin: 0; padding-left: 22px; font-size: 16px; line-height: 1.6; color: #AEB6CC">
+<li>Pick an issue and comment to claim it.</li>
+<li>Fork, branch, and run <code style="font-family: 'JetBrains Mono', monospace">python3 check.py new-pattern "Title"</code> for a new pattern.</li>
+<li>Run <code style="font-family: 'JetBrains Mono', monospace">python3 check.py</code>, commit with <code style="font-family: 'JetBrains Mono', monospace">git commit -s</code>, open a pull request.</li>
+<li>Automatic checks run and a track label is applied for you.</li>
+<li>A reviewer approves in their area, a maintainer merges, and the credit list updates itself.</li>
+</ol>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 820px">
+<p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: #6E8DFF">Three roles</p>
+<table style="border-collapse: collapse; font-size: 16px; line-height: 1.6; color: #AEB6CC">
+<tr><td style="padding: 8px 24px 8px 0; color: #FFFFFF; font-weight: 600; vertical-align: top">Contributor</td><td style="padding: 8px 0">Fork, open pull requests, comment, review. Where everyone starts.</td></tr>
+<tr><td style="padding: 8px 24px 8px 0; color: #FFFFFF; font-weight: 600; vertical-align: top">Reviewer</td><td style="padding: 8px 0">Binding approval in an area, after about five good merged pull requests.</td></tr>
+<tr><td style="padding: 8px 24px 8px 0; color: #FFFFFF; font-weight: 600; vertical-align: top">Maintainer</td><td style="padding: 8px 0">Merges, cuts releases, promotes patterns. Earned through sustained reviewing.</td></tr>
+</table>
+</div>
+
 <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px">
-<a href="#contribute" style="display: flex; flex-direction: column; gap: 10px; padding: 32px; border-radius: 14px; border: 1px solid #2A3252; color: #FFFFFF; text-decoration: none">
-<span style="font-size: 22px; font-weight: 600">Write a pattern</span>
-<span style="font-size: 16px; line-height: 1.6; color: #AEB6CC">A harmless test plus a detection for an attack the registry doesn't cover yet.</span>
+<a href="https://github.com/guardianprotocol-ai/registry/blob/main/START_HERE.md" style="display: flex; flex-direction: column; gap: 10px; padding: 32px; border-radius: 14px; border: 1px solid #2A3252; color: #FFFFFF; text-decoration: none">
+<span style="font-size: 22px; font-weight: 600">Start here</span>
+<span style="font-size: 16px; line-height: 1.6; color: #AEB6CC">A first contribution in about fifteen minutes, from a clone to an open pull request.</span>
 </a>
-<a href="#contribute" style="display: flex; flex-direction: column; gap: 10px; padding: 32px; border-radius: 14px; border: 1px solid #2A3252; color: #FFFFFF; text-decoration: none">
-<span style="font-size: 22px; font-weight: 600">Review the coverage map</span>
-<span style="font-size: 16px; line-height: 1.6; color: #AEB6CC">Check how each MITRE ATLAS technique is triaged, and where the protocol can act.</span>
+<a href="https://github.com/guardianprotocol-ai/registry/blob/main/TRACKS.md" style="display: flex; flex-direction: column; gap: 10px; padding: 32px; border-radius: 14px; border: 1px solid #2A3252; color: #FFFFFF; text-decoration: none">
+<span style="font-size: 22px; font-weight: 600">Pick a track</span>
+<span style="font-size: 16px; line-height: 1.6; color: #AEB6CC">Patterns, scanner, sensor, coverage or research. Each one has issues waiting.</span>
 </a>
-<a href="#contribute" style="display: flex; flex-direction: column; gap: 10px; padding: 32px; border-radius: 14px; border: 1px solid #2A3252; color: #FFFFFF; text-decoration: none">
+<a href="https://github.com/guardianprotocol-ai/registry/blob/main/GOVERNANCE.md" style="display: flex; flex-direction: column; gap: 10px; padding: 32px; border-radius: 14px; border: 1px solid #2A3252; color: #FFFFFF; text-decoration: none">
+<span style="font-size: 22px; font-weight: 600">How decisions are made</span>
+<span style="font-size: 16px; line-height: 1.6; color: #AEB6CC">The three roles in full, how proposals are decided, and who holds the keys.</span>
+</a>
+<a href="https://github.com/guardianprotocol-ai/registry/blob/main/CONTRIBUTING.md" style="display: flex; flex-direction: column; gap: 10px; padding: 32px; border-radius: 14px; border: 1px solid #2A3252; color: #FFFFFF; text-decoration: none">
+<span style="font-size: 22px; font-weight: 600">The rules</span>
+<span style="font-size: 16px; line-height: 1.6; color: #AEB6CC">Sign-off, what the automatic checks enforce, and how a change gets in.</span>
+</a>
+<a href="https://github.com/guardianprotocol-ai/registry/blob/main/docs/MAINTAINING.md" style="display: flex; flex-direction: column; gap: 10px; padding: 32px; border-radius: 14px; border: 1px solid #2A3252; color: #FFFFFF; text-decoration: none">
+<span style="font-size: 22px; font-weight: 600">For maintainers</span>
+<span style="font-size: 16px; line-height: 1.6; color: #AEB6CC">Reviewing, promoting a pattern, adding a reviewer, and the weekly meeting.</span>
+</a>
+<a href="https://github.com/guardianprotocol-ai/registry/blob/main/SECURITY.md" style="display: flex; flex-direction: column; gap: 10px; padding: 32px; border-radius: 14px; border: 1px solid #2A3252; color: #FFFFFF; text-decoration: none">
 <span style="font-size: 22px; font-weight: 600">Report an attack privately</span>
-<span style="font-size: 16px; line-height: 1.6; color: #AEB6CC">Seen something live? Use private reporting. We follow coordinated disclosure.</span>
+<span style="font-size: 16px; line-height: 1.6; color: #AEB6CC">Seen something live? Report it privately. We follow coordinated disclosure.</span>
 </a>
 </div>
+
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #AEB6CC">These guides live in the repository and are the single source of truth. This page links to them rather than repeating them, so the two can never drift apart.</p>
 </section>
 
 <footer id="governance" style="flex-grow: 1; display: flex; justify-content: space-between; align-items: flex-start; gap: 48px; padding: 56px 120px; border-top: 1px solid #DCE3F0">
