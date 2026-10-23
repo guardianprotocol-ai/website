@@ -28,6 +28,19 @@
         ]
       },
       {
+        "source": "**/*.json",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, must-revalidate"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json; charset=utf-8"
+          }
+        ]
+      },
+      {
         "source": "**/*.@(svg|png|ico)",
         "headers": [
           {

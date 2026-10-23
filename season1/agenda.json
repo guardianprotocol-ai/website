@@ -1,0 +1,6 @@
+{
+  "exercise_id": "season1-a1",
+  "run_after": "2026-10-27T14:00:00Z",
+  "settings": {"mode": "block", "respond": true},
+  "note": "Season 1, first exercise. Runs locally, shares nothing."
+}
