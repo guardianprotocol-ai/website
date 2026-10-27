@@ -40,6 +40,23 @@ section p, section li, section h1, section h2, section h3{overflow-wrap:break-wo
   /* Smaller, so a command line needs less scrolling to read on a phone. */
   .panel{padding:24px 20px !important;font-size:13px}
   .panel div{font-size:13px !important}
+
+  /* Vertical padding was never touched when the side padding was fixed, so a phone still
+     carried the desktop's 120px above the first line and 112px under every band. That is
+     most of a screen of nothing before the page starts. */
+  header{padding-top:18px !important;padding-bottom:18px !important}
+  section{padding-top:56px !important;padding-bottom:48px !important}
+  section[style*="120px 120px 112px"]{padding-top:24px !important;gap:32px !important}
+
+  /* Side by side the two hero buttons need about 395px and a phone offers 350, so they
+     were squeezed to fit rather than wrapped, and their labels sat off centre inside
+     boxes that had stopped being button shaped. One per row, label centred. */
+  div[style*="gap: 16px; align-items: center"]{flex-wrap:wrap;gap:12px !important}
+  div[style*="gap: 16px; align-items: center"] > a{flex:1 1 100%;justify-content:center}
+
+  /* A column divider drawn on the right of a full width row is a line across the page. */
+  div[style*="border-right: 1px solid #DCE3F0"]{border-right:none !important;
+    padding-left:0 !important;padding-right:0 !important}
 }
 @media (max-width: 420px){
   h1{font-size:34px !important}
