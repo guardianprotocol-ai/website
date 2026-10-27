@@ -15,6 +15,18 @@ body{margin:0;background:#FFFFFF;font-family:'Manrope',system-ui,sans-serif;colo
 a{color:#2459FF}a:hover{color:#1B44CC}
 </style>
 <style>
+/* A grid child defaults to min-width:auto, so one long monospace line makes the whole
+   column wider than the screen and the page scrolls sideways. The hero holds 64 character
+   commands, so without this the site had a horizontal scrollbar on any phone. */
+section > div, .panel > div{min-width:0}
+section p, section li, section h1, section h2, section h3{overflow-wrap:break-word}
+/* The terminal panel scrolls inside itself instead of pushing the page.
+   Deliberately not wrapped: the results table below the commands is aligned with spaces,
+   and wrapping it would turn a readable table into noise. */
+.panel{overflow-x:auto}
+@media (max-width: 1040px){
+  section[style*="repeat(3,"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+}
 @media (max-width: 900px){
   [style*="grid-template-columns"]{grid-template-columns:1fr !important}
   header,section,footer{padding-left:20px !important;padding-right:20px !important}
@@ -25,6 +37,14 @@ a{color:#2459FF}a:hover{color:#1B44CC}
   h2{font-size:34px !important}
   footer,footer nav{flex-direction:column}
   pre,code{white-space:pre-wrap}
+  /* Smaller, so a command line needs less scrolling to read on a phone. */
+  .panel{padding:24px 20px !important;font-size:13px}
+  .panel div{font-size:13px !important}
+}
+@media (max-width: 420px){
+  h1{font-size:34px !important}
+  h2{font-size:27px !important}
+  .panel div{font-size:12px !important}
 }
 </style>
 </head>
@@ -56,7 +76,7 @@ a{color:#2459FF}a:hover{color:#1B44CC}
 </div>
 <p style="margin: 0; font-size: 15px; color: #5C6484">Apache 2.0. No company owns it. Headed for a neutral foundation.</p>
 </div>
-<div style="display: flex; flex-direction: column; gap: 14px; background: #0B1020; border-radius: 16px; padding: 36px 40px; color: #E8ECF7">
+<div class="panel" style="display: flex; flex-direction: column; gap: 14px; background: #0B1020; border-radius: 16px; padding: 36px 40px; color: #E8ECF7">
 <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #99A2BC">Three commands, no dependencies</p>
 <div style="display: flex; flex-direction: column; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 15px; line-height: 1.5">
 <div><span style="color: #6E8DFF">$</span> git clone https://github.com/guardianprotocol-ai/registry</div>
