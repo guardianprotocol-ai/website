@@ -57,15 +57,18 @@ a{color:#2459FF}a:hover{color:#1B44CC}
 <p style="margin: 0; font-size: 15px; color: #5C6484">Apache 2.0. No company owns it. Headed for a neutral foundation.</p>
 </div>
 <div style="display: flex; flex-direction: column; gap: 14px; background: #0B1020; border-radius: 16px; padding: 36px 40px; color: #E8ECF7">
-<p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #99A2BC">Measured, not asserted</p>
+<p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #99A2BC">Three commands, no dependencies</p>
 <div style="display: flex; flex-direction: column; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 15px; line-height: 1.5">
 <div><span style="color: #6E8DFF">$</span> git clone https://github.com/guardianprotocol-ai/registry</div>
-<div><span style="color: #6E8DFF">$</span> cd registry/scanner</div>
-<div><span style="color: #6E8DFF">$</span> python3 -m guardian_scanner run --target scripted:vulnerable --repeat 20</div>
-<div><span style="color: #6E8DFF">$</span> python3 -m guardian_scanner run --target claude-code --repeat 20 --sensor</div>
+<div><span style="color: #6E8DFF">$</span> cd registry/sensor</div>
+<div><span style="color: #6E8DFF">$</span> python3 -m guardian_sensor drill</div>
+<div style="color: #7D86A3">&nbsp;&nbsp;3 of 3 exercises caught in 0.6 seconds</div>
+<div><span style="color: #6E8DFF">$</span> python3 -m guardian_sensor protect</div>
+<div style="color: #7D86A3">&nbsp;&nbsp;starts in monitor mode, which records and allows</div>
 </div>
 <div style="height: 1px; background: #1E2540"></div>
 <div style="display: flex; flex-direction: column; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.6; color: #C6CDE0">
+<div style="color: #7D86A3">&nbsp;&nbsp;$ cd ../scanner &amp;&amp; python3 -m guardian_scanner run --target claude-code --repeat 20</div>
 <div style="color: #99A2BC">GP-0003, tampered MCP tool      Rate   95% interval</div>
 <div><span style="color: #AEB6CC">claude-code</span>       <span style="color: #FF6B6B">100%</span>   [0.84, 1.00]</div>
 <div><span style="color: #AEB6CC">claude-code</span>  <span style="color: #6E8DFF">+sensor</span>    <span style="color: #6E8DFF">0%</span>   [0.00, 0.16]</div>
