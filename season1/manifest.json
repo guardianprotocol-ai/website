@@ -1,0 +1,9 @@
+{
+  "files": {
+    "pattern-status.json": "4eee044bed818238d6789348ff1843361beb39681e0537ed812728305ba3783c",
+    "signatures.json": "34d9a7a88daad9d7e0420f4ea515bd5fc5d3282a2b14113cf5b7fafd2b6e3951"
+  },
+  "published": "2026-10-26T14:59:54+00:00",
+  "rules_version": "r2026.10.26",
+  "schema_version": "0.2"
+}

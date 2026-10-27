@@ -7,7 +7,7 @@ The public website for Guardian Protocol. It belongs to the project, not to any 
 - **Neutral.** No sales copy. Companies appear only in the "Built on Guardian Protocol" directory: alphabetical, one published listing policy, everyone listed the same way.
 - **No trackers.** No ad pixels or sign-up walls. Privacy-respecting analytics or none.
 - **Honest.** Numbers on the page (patterns, ATLAS coverage, members) must match the registry. Placeholders stay in brackets until they're real.
-- **The trademark check is still open** on the name. The site is live but served `noindex` until it is cleared and the placeholders are filled.
+- **The trademark check is still open** on the name. That is handled separately and is not a reason to hide the page: `noindex` would only keep it out of search results, and a site anyone can open is public use either way.
 - **Brand.** Guardian blue `#2459FF` for the mark, links and buttons. Signal amber `#FFB020` only for the one lit node inside the mark, never as a general accent. Ink `#0B1020` and white. Manrope for headings, JetBrains Mono for code and labels.
 
 ## Files
@@ -21,7 +21,7 @@ The public website for Guardian Protocol. It belongs to the project, not to any 
 
 The brand folder is the source of truth. When the mark changes, copy the files again rather than editing the copies here, and never redraw the mark.
 
-Placeholders still to fill: the install commands (the `guardian-protocol` package isn't published yet), founding member logos and count, vendor listings, and the links.
+Placeholders still to fill: founding member logos and count, and vendor listings. Getting started is no longer a placeholder: there is no package to install, so the hero shows the real path, which is a clone and a scripted run that costs nothing. Every link on the page resolves.
 
 ## Deploy (Firebase Hosting)
 
@@ -33,7 +33,9 @@ firebase deploy --only hosting
 
 `firebase.json` sets the whole folder as the public root and ignores `.git`, the README, the CNAME and the Firebase files themselves. The ignore list needs both `**/.*` and `**/.*/**`: the first alone matches dotfiles but not files inside a dot directory, so a first deploy served the entire `.git` folder publicly.
 
-While the page still carries placeholders, everything is served with `X-Robots-Tag: noindex, nofollow` and `robots.txt` disallows all crawlers. Delete `robots.txt` and that header on the day the page is ready to be found.
+The page is indexable, deliberately. Neither `robots.txt` nor an `X-Robots-Tag` header exists, which for a while contradicted what this file claimed.
+
+If that is ever revisited, `noindex` alone is the mechanism, as a header or a meta tag. Never `robots.txt` as well: a crawler told not to fetch the page never reads the `noindex` on it, so once anyone links to the site it can be listed as a bare URL with no way to suppress it. The two controls together are weaker than either alone.
 
 ### Custom domain
 

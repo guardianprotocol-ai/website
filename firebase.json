@@ -67,6 +67,15 @@
           }
         ]
       }
+    ],
+    "rewrites": [
+      {
+        "source": "/season1/sightings",
+        "run": {
+          "serviceId": "sightings-receiver",
+          "region": "us-central1"
+        }
+      }
     ]
   }
 }
