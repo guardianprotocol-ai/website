@@ -61,8 +61,12 @@ section p, section li, section h1, section h2, section h3{overflow-wrap:break-wo
   /* The header's GitHub button wrapped onto a row of its own with nothing beside it, so a
      phone opened on a band of empty blue. It is the hero's primary call to action a few
      hundred pixels below, and the four anchors above it are the only way to navigate on a
-     phone, so the duplicate goes and the navigation stays. */
-  header nav a[href^="https://github.com"]{display:none}
+     phone, so the duplicate goes and the navigation stays.
+
+     !important because the button carries display:inline-flex as an inline style, and an
+     inline style beats a stylesheet rule whatever the selector. Without it this rule was
+     served, matched, and lost. */
+  header nav a[href^="https://github.com"]{display:none !important}
 
   /* Room to breathe under an eyebrow. These labels are small, spaced capitals and read as
      a label for what follows, which only works with a gap wide enough to group them. */
