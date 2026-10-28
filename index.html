@@ -57,6 +57,20 @@ section p, section li, section h1, section h2, section h3{overflow-wrap:break-wo
   /* A column divider drawn on the right of a full width row is a line across the page. */
   div[style*="border-right: 1px solid #DCE3F0"]{border-right:none !important;
     padding-left:0 !important;padding-right:0 !important}
+
+  /* The header's GitHub button wrapped onto a row of its own with nothing beside it, so a
+     phone opened on a band of empty blue. It is the hero's primary call to action a few
+     hundred pixels below, and the four anchors above it are the only way to navigate on a
+     phone, so the duplicate goes and the navigation stays. */
+  header nav a[href^="https://github.com"]{display:none}
+
+  /* Room to breathe under an eyebrow. These labels are small, spaced capitals and read as
+     a label for what follows, which only works with a gap wide enough to group them. */
+  section{padding-top:64px !important}
+  section[style*="120px 120px 112px"]{padding-top:44px !important}
+  p[style*="letter-spacing: 2px"]{margin-bottom:6px !important}
+  div[style*="gap: 16px; max-width: 760px"]{gap:20px !important}
+  div[style*="gap: 16px; max-width: 820px"]{gap:20px !important}
 }
 @media (max-width: 420px){
   h1{font-size:34px !important}
